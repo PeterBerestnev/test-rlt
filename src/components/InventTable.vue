@@ -1,6 +1,6 @@
 <template>
   <div class="bg-main invent border">
-    <div style="display: flex; flex-direction: row; height:20%;" v-for="r in 5" :key="r">
+    <div style="display: flex; flex-direction: row; height:20%;" v-for="r in 5" :key="r" >
       <div :class="{
         'no-border-left': c === 1,
         'no-border-right': c === 5,
@@ -10,21 +10,27 @@
         'corner-right-top': (r === 1 && c === 5),
         'corner-left-bot': (r === 5 && c === 1),
         'corner-right-bot': (r === 5 && c === 5)
-      }" class="cell" @drop="onDrop($event, getId(r, c))" @dragover.prevent @dragenter.prevent v-for="c in 5"
+      }" class="cell" @drop="onDrop($event, getId(r, c))" @dragover.prevent @dragenter.prevent  v-for="c in 5"
         :key="c">
-        <div @dragstart="onDragStart($event, getElement(r, c))" draggable="true">
-          <div v-if="isElementCell(r, c)" >
+        <div @dragstart="onDragStart($event, getElement(r, c))"  draggable="true">
+          <div  @click="openModal(getElement(r, c))" class="cursor" v-if="isElementCell(r, c)" >
             <img :src="getElement(r, c).pic">
-          {{ getElement(r, c).count }}
+            {{ getElement(r, c).count }}
           </div>
  
         </div>
       </div>
     </div>
+      <ControlForm 
+      ref="modal"
+      :item="chosenElem"
+      ></ControlForm>
   </div>
 </template>
   
 <script>
+import ControlForm from './ControlForm.vue'
+
 export default {
   name: 'InventTable',
   data() {
@@ -33,12 +39,17 @@ export default {
         { id: 1, value: 0 ,count:4,pic: require('@/pics/mage.png')},
         { id: 9, value: 1 ,count:1,pic:require('@/pics/mage1.png')},
         { id: 20, value: 2,count:6,pic:require('@/pics/mage2.png')}
-      ]
+      ],
+      chosenElem: null
     }
   },
   methods: {
     isElementCell(row, column) {
       return this.elements.some(el => el.id === ((row - 1) * 5 + column));
+    },
+    openModal(data) {
+      this.$refs.modal.openModal();
+      this.chosenElem = data
     },
     getElement(row, column) {
       return this.elements.find(el => el.id === ((row - 1) * 5 + column));
@@ -69,28 +80,35 @@ export default {
    
     },
   },
-
+  components: {
+      ControlForm
+  }
 }
 </script>
   
 <style scoped>
 .invent {
-  width: 100%;
+  box-sizing: border-box;
+  min-width: 525px;
   margin-left: 30px;
   border-radius: 12px;
+  max-height: 500px;
 }
 
 .cell:hover {
   background-color: #2f2f2f;
 }
-
+.cursor {
+  cursor:pointer
+}
 .cell {
   display: flex;
   flex-direction: column;
   width: 100%;
   justify-content: center;
   align-items: center;
-  border: 1px solid #4D4D4D
+  border: 1px solid #4D4D4D;
+  box-sizing: border-box;
 }
 
 .no-border-left {

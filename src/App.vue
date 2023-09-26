@@ -19,16 +19,17 @@ body{
   background-color: rgba(30,30,30,255)
 }
 .bg-dark {
-  background: linear-gradient(to bottom right, #4D4D4D,90%, rgb(39, 37, 37));
+  background: linear-gradient(90deg, #3C3C3C 0%, #444444 51.04%, #333333 100%);
+
 }
 .emptyField {
-  width: 80%;
+  width: 92%;
+  height: 36px;
   border: 0px;
   border-radius: 12px;
-  height: 1.5rem
 }
 .mt {
-    margin-top: 30px
+    margin-top: 25px
 }
 .mt-1 {
   margin-top: 20px

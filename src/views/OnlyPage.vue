@@ -48,6 +48,6 @@ body {
 
 .f-column {
     flex-direction: column;
-    align-self:center
+    align-self:center;
 }
 </style>

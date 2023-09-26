@@ -1,13 +1,13 @@
 <template>
   <div class="border size bg-main d-flex f-col">
-    <img src="https://bogatyr.club/uploads/posts/2023-03/thumbs/1678826748_bogatyr-club-p-fon-dlya-storis-kosmos-foni-vkontakte-1.jpg" class="border pic"/>
-    <div style="height: 20px%; width:100%" class="mt-1 emptyField bg-dark"></div>
-    <div style="height: 8px; width:75%" class="mt emptyField bg-dark"></div>
-    <div style="height: 8px; width:90%" class="mt-1 emptyField bg-dark"></div>
-    <div style="height: 8px; width:85%" class="mt-1 emptyField bg-dark"></div>
-    <div style="height: 8px; width:80%" class="mt-1 emptyField bg-dark"></div>
-    <div style="height: 8px; width:75%" class="mt-1 emptyField bg-dark"></div>
-    <div style="height: 8px; width:50%" class="mt emptyField bg-dark"></div>
+    <img class="border pic" src="../pics/Blur.png" />
+    <div style="height: 26px; width:100%" class="mt-1 emptyField bg-dark"></div>
+    <div style="height: 10px; width:75%" class="mt emptyField bg-dark"></div>
+    <div style="height: 10px; width:90%" class="mt-1 emptyField bg-dark"></div>
+    <div style="height: 10px; width:85%" class="mt-1 emptyField bg-dark"></div>
+    <div style="height: 10px; width:80%" class="mt-1 emptyField bg-dark"></div>
+    <div style="height: 10px; width:75%" class="mt-1 emptyField bg-dark"></div>
+    <div style="height: 10px; width:50%" class="mt emptyField bg-dark"></div>
   </div>
 </template>
 
@@ -19,10 +19,11 @@ export default {
 
 <style scoped>
 .size {
-  width:31%;
   padding: 2%;
   box-sizing: border-box;
   position: relative;
+  min-width: 236px;
+  max-height: 500px;
 }
 .elemBgColor {
   background-color: #4D4D4D;
