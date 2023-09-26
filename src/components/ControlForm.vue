@@ -14,12 +14,19 @@
                 <div class="smstub w-40 bg-dark"></div>
             </div>
             <div class="divider"></div>
-            <button class="btn"><div class="txt">Удалить предмет</div></button>
+            <button v-if="!DelForm" @click="DelForm=!DelFprm" class="btn"><div class="txt">Удалить предмет</div></button>
+            <DeleteForm 
+            @abroat="DelForm=false"
+            @deleteReps="deleteReps"
+            :count="item.count" 
+            v-else
+            ></DeleteForm>
         </div>
     </TransitionGroup>
 </template>
     
 <script>
+import DeleteForm from './DeleteForm.vue'
 export default {
     name: 'ControlForm',
     props: {
@@ -30,7 +37,8 @@ export default {
     },
     data() {
         return {
-            isOpen: false
+            isOpen: false,
+            DelForm: false
         }
     },
     methods: {
@@ -39,7 +47,13 @@ export default {
     },
     closeModal() {
       this.isOpen = false;
+    },
+    deleteReps(data) {
+        this.$emit('deleteReps',{id:this.item.id, repsToDel: data})
     }
+  },
+  components: {
+    DeleteForm
   }
 }
 </script>
