@@ -1,26 +1,43 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <OnlyPage/>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import OnlyPage from './views/OnlyPage.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    OnlyPage
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+body{
+  margin:0;
+  background-color: rgba(30,30,30,255)
+}
+.bg-dark {
+  background: linear-gradient(to bottom right, #4D4D4D,90%, rgb(39, 37, 37));
+}
+.emptyField {
+  width: 80%;
+  border: 0px;
+  border-radius: 12px;
+  height: 1.5rem
+}
+.mt {
+    margin-top: 30px
+}
+.mt-1 {
+  margin-top: 20px
+}
+.bg-main {
+  background-color: #262626;
+}
+.border {
+  border: solid 1px #4D4D4D;
+  border-radius: 12px;
 }
 </style>
